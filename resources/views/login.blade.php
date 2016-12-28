@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="none" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="admin login">
-    <title>Admin - {{ Voyager::setting("title") }}</title>
+    <title>{{ trans('voyager::login.title') }}</title>
     <link rel="stylesheet" href="{{ config('voyager.assets_path') }}/lib/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ config('voyager.assets_path') }}/css/login.css">
     <style>
