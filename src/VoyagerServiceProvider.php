@@ -54,6 +54,7 @@ class VoyagerServiceProvider extends ServiceProvider
             });
         }
 
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'voyager');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'voyager');
 
         $router->middleware('admin.user', VoyagerAdminMiddleware::class);
@@ -83,6 +84,9 @@ class VoyagerServiceProvider extends ServiceProvider
             ],
             'views' => [
                 "$basePath/publishable/views/" => resource_path('views/vendor/voyager'),
+            ],
+            'lang'  => [
+                "$basePath/publishable/lang/" => resource_path('lang/vendor/voyager'),
             ],
         ];
 
