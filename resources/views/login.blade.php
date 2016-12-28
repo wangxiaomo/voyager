@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="admin login">
+    <meta name="description" content="{{ trans('voyager::meta_description') }}">
     <meta name="author" content="">
-    <title>Admin Login</title>
+    <title>{{ trans('voyager::login.title') }}</title>
     {{-- Voyager CSS --}}
     <link rel="stylesheet" href="{{ config('voyager.assets_path') }}/css/voyager.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,300italic">
@@ -206,23 +206,23 @@
 
     <div id="login_section">
         <div class="content">
-            <h2>Sign In</h2>
-            <p>Sign in below:</p>
+            <h2>{{ trans('voyager::login.sign_in_ps1') }}</h2>
+            <p>{{ trans('voyager::login.sign_in_ps2') }}:</p>
             <div style="clear:both"></div>
             <form action="{{ route('voyager.login') }}" method="POST" id="login">
                 {{ csrf_field() }}
                 <input type="text" class="form-control" name="email" placeholder="email address" value="{{ old('email') }}">
                 <input type="password" class="form-control" name="password" placeholder="password">
                 <button class="btn btn-primary btn-login" id="voyager-login-btn">
-                    <span class="login_text"><i class="voyager-lock"></i> Login</span>
+                    <span class="login_text"><i class="voyager-lock"></i> {{ trans('voyager::login.login_btn_ps1') }}</span>
                     <span class="login_loader">
-                        <img class="btn-loading" src="{{ config('voyager.assets_path') }}/images/logo-icon-light.png"> Logging in
+                        <img class="btn-loading" src="{{ config('voyager.assets_path') }}/images/logo-icon-light.png"> {{ trans('voyager::login.login_btn_ps2') }}
                     </span>
                 </button>
             </form>
             @if (count($errors))
                 <div class="error-login">
-                    The given credentials don't match with an user registered.
+                    {{ trans('voyager::login.error') }}
                 </div>
             @endif
         </div>
