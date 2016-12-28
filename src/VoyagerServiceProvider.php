@@ -67,6 +67,7 @@ class VoyagerServiceProvider extends ServiceProvider
             });
         }
 
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'voyager');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'voyager');
 
         if (app()->version() >= 5.4) {
@@ -196,6 +197,12 @@ class VoyagerServiceProvider extends ServiceProvider
             ],
             'config' => [
                 "$basePath/publishable/config/voyager.php" => config_path('voyager.php'),
+            ],
+            'views' => [
+                "$basePath/publishable/views/" => resource_path('views/vendor/voyager'),
+            ],
+            'lang'  => [
+                "$basePath/publishable/lang/" => resource_path('lang/vendor/voyager'),
             ],
         ];
 
