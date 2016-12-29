@@ -82,10 +82,10 @@ $menuExpanded = isset($_COOKIE['expandedMenu']) && $_COOKIE['expandedMenu'] == 1
 
                                 @if($i < count(Request::segments()) & $i > 0)
                                     <li class="active"><a
-                                                href="{{ $breadcrumb_url }}">{{ ucwords(str_replace('-', ' ', str_replace('_', ' ', Request::segment($i)))) }}</a>
+                                                href="{{ $breadcrumb_url }}">{{ trans('voyager::common.' . str_replace('-', ' ', str_replace('_', ' ', Request::segment($i)))) }}</a>
                                     </li>
                                 @else
-                                    <li>{{ ucwords(str_replace('-', ' ', str_replace('_', ' ', Request::segment($i)))) }}</li>
+                                    <li>{{ trans('voyager::common.' . str_replace('-', ' ', str_replace('_', ' ', Request::segment($i)))) }}</li>
                                 @endif
 
                             @endif
