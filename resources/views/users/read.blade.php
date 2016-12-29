@@ -21,7 +21,7 @@
                     @foreach($dataType->readRows as $row)
 
                         <div class="panel-heading" style="border-bottom:0;">
-                            <h3 class="panel-title">{{ trans('voyager::users.' . strtolower($row->display_name)) }}</h3>
+                            <h3 class="panel-title">{{ trans('voyager::users.' . strtolower(str_replace(' ', '_', $row->display_name))) }}</h3>
                         </div>
 
                         <div class="panel-body" style="padding-top:0;">

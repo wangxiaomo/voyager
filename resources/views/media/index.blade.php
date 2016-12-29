@@ -13,7 +13,7 @@
             <div class="col-md-12">
 
                 <div class="admin-section-title">
-                    <h3><i class="voyager-images"></i> Media</h3>
+                    <h3><i class="voyager-images"></i> {{ trans('voyager::common.media') }}</h3>
                 </div>
                 <div class="clear"></div>
 
@@ -22,23 +22,23 @@
                     <div id="toolbar">
                         <div class="btn-group offset-right">
                             <button type="button" class="btn btn-primary" id="upload"><i class="voyager-upload"></i>
-                                Upload
+                                {{ trans('voyager::common.op_upload') }}
                             </button>
                             <button type="button" class="btn btn-primary" id="new_folder"
                                     onclick="jQuery('#new_folder_modal').modal('show');"><i class="voyager-folder"></i>
-                                Add folder
+                                {{ trans('voyager::common.op_add_folder') }}
                             </button>
                         </div>
                         <button type="button" class="btn btn-default" id="refresh"><i class="voyager-refresh"></i>
                         </button>
                         <div class="btn-group offset-right">
-                            <button type="button" class="btn btn-default" id="move"><i class="voyager-move"></i> Move
+                            <button type="button" class="btn btn-default" id="move"><i class="voyager-move"></i> {{ trans('voyager::common.op_move') }}
                             </button>
                             <button type="button" class="btn btn-default" id="rename"><i class="voyager-character"></i>
-                                Rename
+                                {{ trans('voyager::common.op_rename') }}
                             </button>
                             <button type="button" class="btn btn-default" id="delete"><i class="voyager-trash"></i>
-                                Delete
+                                {{ trans('voyager::common.op_delete') }}
                             </button>
                         </div>
                     </div>
@@ -54,8 +54,7 @@
 
                         <div class="breadcrumb-container">
                             <ol class="breadcrumb filemanager">
-                                <li data-folder="/" data-index="0"><span class="arrow"></span><strong>Media
-                                        Library</strong></li>
+                                <li data-folder="/" data-index="0"><span class="arrow"></span><strong>{{ trans('voyager::media.library') }}</strong></li>
                                 <template v-for="folder in folders">
                                     <li data-folder="@{{folder}}" data-index="@{{ $index+1 }}"><span
                                                 class="arrow"></span>@{{ folder }}</li>
@@ -111,11 +110,11 @@
                                     <div id="file_loader_inner">
                                         <div class="icon voyager-helm"></div>
                                     </div>
-                                    <p>LOADING YOUR MEDIA FILES</p>
+                                    <p>{{ trans('voyager::media.loading') }}</p>
                                 </div>
 
                                 <div id="no_files">
-                                    <h3><i class="voyager-meh"></i> No files in this folder.</h3>
+                                    <h3><i class="voyager-meh"></i>{{ trans('voyager::media.no_files') }}</h3>
                                 </div>
 
                             </div>
@@ -123,7 +122,7 @@
                             <div id="right">
                                 <div class="right_none_selected">
                                     <i class="voyager-cursor"></i>
-                                    <p>No File or Folder Selected</p>
+                                    <p>{{ trans('voyager::media.no_file_selected') }}</p>
                                 </div>
                                 <div class="right_details">
                                     <div class="detail_img @{{ selected_file.type }}">
@@ -155,17 +154,17 @@
 
                                     </div>
                                     <div class="detail_info @{{selected_file.type}}">
-							<span><h4>Title:</h4>
+							<span><h4>{{ trans('voyager::media.title') }}:</h4>
 							<p>@{{selected_file.name}}</p></span>
-                                        <span><h4>Type:</h4>
+                                        <span><h4>{{ trans('voyager::media.type') }}:</h4>
 							<p>@{{selected_file.type}}</p></span>
                                         <template v-if="selected_file.type != 'folder'">
-								<span><h4>Size:</h4>
+								<span><h4>{{ trans('voyager::media.size') }}:</h4>
 								<p><span class="selected_file_count">@{{ selected_file.items }} item(s)</span><span
                                             class="selected_file_size">@{{selected_file.size}}</span></p></span>
-                                            <span><h4>Public URL:</h4>
-								<p><a href="@{{ selected_file.path }}" target="_blank">Click Here</a></p></span>
-                                            <span><h4>Last Modified:</h4>
+                                            <span><h4>{{ trans('voyager::media.url') }}:</h4>
+								<p><a href="@{{ selected_file.path }}" target="_blank">{{ trans('voyager::media.url_click') }}</a></p></span>
+                                            <span><h4>{{ trans('voyager::media.last_modified') }}:</h4>
 								<p>@{{selected_file.last_modified}}</p></span>
                                         </template>
                                     </div>
@@ -177,7 +176,7 @@
 
                         <div class="nothingfound">
                             <div class="nofiles"></div>
-                            <span>No files here.</span>
+                            <span>{{ trans('voyager::media.no_files') }}</span>
                         </div>
 
                     </div>
@@ -190,11 +189,11 @@
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
                                             aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title"><i class="voyager-move"></i> Move File/Folder</h4>
+                                    <h4 class="modal-title"><i class="voyager-move"></i>{{ trans('voyager::media.move_file_modal_title') }}</h4>
                                 </div>
 
                                 <div class="modal-body">
-                                    <h4>Destination Folder</h4>
+                                    <h4>{{ trans('voyager::media.destination_folder') }}</h4>
                                     <select id="move_folder_dropdown">
                                         <template v-if="folders.length">
                                             <option value="/../">../</option>
@@ -206,8 +205,8 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-warning" id="move_btn">Move</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('voyager::common.btn_cancel') }}</button>
+                                    <button type="button" class="btn btn-warning" id="move_btn">{{ trans('voyager::common.btn_move') }}</button>
                                 </div>
                             </div>
                         </div>
@@ -222,18 +221,18 @@
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"
                                             aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title"><i class="voyager-character"></i> Rename File/Folder</h4>
+                                    <h4 class="modal-title"><i class="voyager-character"></i>{{ trans('voyager::media.rename_file_modal_title') }}</h4>
                                 </div>
 
                                 <div class="modal-body">
-                                    <h4>New File/Folder Name</h4>
+                                    <h4>{{ trans('voyager::media.new_file_folder_name') }}</h4>
                                     <input id="new_filename" class="form-control" type="text"
                                            value="@{{selected_file.name}}">
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-warning" id="rename_btn">Rename</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('voyager::common.btn_cancel') }}</button>
+                                    <button type="button" class="btn btn-warning" id="rename_btn">{{ trans('voyager::common.btn_rename') }}</button>
                                 </div>
                             </div>
                         </div>
@@ -250,7 +249,7 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"
                                         aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><i class="voyager-folder"></i> Add New Folder</h4>
+                                <h4 class="modal-title"><i class="voyager-folder"></i>{{ trans('voyager::media.new_folder_modal_title') }}</h4>
                             </div>
 
                             <div class="modal-body">
@@ -259,9 +258,8 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-info" id="new_folder_submit">Create New Folder
-                                </button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('voyager::common.btn_cancel') }}</button>
+                                <button type="button" class="btn btn-info" id="new_folder_submit">{{ trans('voyager::common.btn_new') }}</button>
                             </div>
                         </div>
                     </div>
@@ -276,19 +274,17 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"
                                         aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><i class="voyager-warning"></i> Are You Sure</h4>
+                                <h4 class="modal-title"><i class="voyager-warning"></i>{{ trans('voyager::media.delete_modal_title') }}</h4>
                             </div>
 
                             <div class="modal-body">
-                                <h4>Are you sure you want to delete '<span class="confirm_delete_name"></span>'</h4>
-                                <h5 class="folder_warning"><i class="voyager-warning"></i> Deleting a folder will remove
-                                    all files and folders contained inside</h5>
+                                <h4>{!! trans('voyager::media.delete_ps1') !!}</h4>
+                                <h5 class="folder_warning"><i class="voyager-warning"></i>{{ trans('voyager::media.delete_ps2') }}</h5>
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-danger" id="confirm_delete">Yes, Delete it!
-                                </button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('voyager::common.btn_cancel') }}</button>
+                                <button type="button" class="btn btn-danger" id="confirm_delete">{{ trans('voyager::common.btn_delete') }}</button>
                             </div>
                         </div>
                     </div>
@@ -304,8 +300,7 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"
                                         aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><i class="voyager-warning"></i> Drag and drop files or click
-                                    below to upload</h4>
+                                <h4 class="modal-title"><i class="voyager-warning"></i>{{ trans('voyager::media.drag_modal_title') }}</h4>
                             </div>
 
                             <div class="modal-body">
@@ -313,7 +308,7 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-dismiss="modal">All done</button>
+                                <button type="button" class="btn btn-success" data-dismiss="modal">{{ trans('voyager::common.btn_done') }}</button>
                             </div>
                         </div>
                     </div>

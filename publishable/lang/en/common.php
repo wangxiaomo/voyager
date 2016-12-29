@@ -17,16 +17,35 @@ return [
     'pages_ps1' =>  'You have :count Pages in your database. Click on \'View All Pages\' below to view all pages',
     'view_all_pages'    =>  'View All Pages',
 
+    'roles'     =>  'Role(s)',
+    'media'     =>  'Media',
+
     'google_analytics'  =>  'To view analytices you\'ll need to get a google analytics client id and add it to your settings for the key <code>google_analytics_client_id</code>. Get your key in your Google developer console:<a href="https://console.developers.google.com" target="_blank">https://console.developers.google.com</a>',
 
     'actions'       =>  'Actions',
     'op_new'        =>  'New',
+    'new'           =>  'New',
     'op_edit'       =>  'Edit',
+    'edit'          =>  'Edit',
     'op_delete'     =>  'Delete',
     'op_delete_ps1' =>  'Are you sure you want to delete this :msg ?',
     'op_delete_ps2' =>  'Yes, Delete This :msg',
     'op_view'       =>  'View',
+    'op_upload'     =>  'Upload',
+    'op_add_folder' =>  'Add folder',
+    'op_move'       =>  'Move',
+    'op_rename'     =>  'Rename',
+    'op_close'      =>  'Close',
+    'op_open'       =>  'Open',
 
     'btn_submit'    =>  'Submit',
     'btn_cancel'    =>  'Cancel',
+    'btn_move'      =>  'Move',
+    'btn_rename'    =>  'Rename',
+    'btn_new'       =>  'New',
+    'btn_delete'    =>  'Delete',
+    'btn_done'      =>  'All Done',
+
+    'select_all'    =>  'Select All',
+    'deselect_all'  =>  'Deselect All',
 ];
