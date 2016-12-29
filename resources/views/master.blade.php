@@ -69,10 +69,10 @@ $menuExpanded = isset($_COOKIE['expandedMenu']) && $_COOKIE['expandedMenu'] == 1
 
                     <ol class="breadcrumb">
                         @if(count(Request::segments()) == 1)
-                            <li class="active"><i class="voyager-boat"></i> Dashboard</li>
+                            <li class="active"><i class="voyager-boat"></i> {{ trans('voyager::common.dashboard') }}</li>
                         @else
                             <li class="active">
-                                <a href="{{ route('voyager.dashboard')}}"><i class="voyager-boat"></i> Dashboard</a>
+                                <a href="{{ route('voyager.dashboard')}}"><i class="voyager-boat"></i> {{ trans('voyager::common.dashboard') }}</a>
                             </li>
                         @endif
                         <?php $breadcrumb_url = ''; ?>
@@ -117,10 +117,10 @@ $menuExpanded = isset($_COOKIE['expandedMenu']) && $_COOKIE['expandedMenu'] == 1
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="{{ route('voyager.profile') }}"><i class="voyager-person"></i> Profile</a>
+                                <a href="{{ route('voyager.profile') }}"><i class="voyager-person"></i> {{ trans('voyager::common.profile') }}</a>
                             </li>
                             <li>
-                                <a href="{{ route('voyager.logout') }}"><i class="voyager-power"></i> Logout</a>
+                                <a href="{{ route('voyager.logout') }}"><i class="voyager-power"></i> {{ trans('voyager::common.logout') }}</a>
                             </li>
                         </ul>
                     </li>
@@ -150,7 +150,7 @@ $menuExpanded = isset($_COOKIE['expandedMenu']) && $_COOKIE['expandedMenu'] == 1
                             <h4>{{ ucwords(Auth::user()->name) }}</h4>
                             <p>{{ Auth::user()->email }}</p>
 
-                            <a href="{{ route('voyager.profile') }}" class="btn btn-primary">Profile</a>
+                            <a href="{{ route('voyager.profile') }}" class="btn btn-primary">{{ trans('voyager::common.profile') }}</a>
                             <div style="clear:both"></div>
                         </div>
                     </div>
@@ -194,7 +194,7 @@ $menuExpanded = isset($_COOKIE['expandedMenu']) && $_COOKIE['expandedMenu'] == 1
 <script type="text/javascript" src="{{ config('voyager.assets_path') }}/js/app.js"></script>
 <script type="text/javascript" src="{{ config('voyager.assets_path') }}/lib/js/toastr.min.js"></script>
 <script>
-            @if(Session::has('message'))
+    @if(Session::has('message'))
     var type = "{{ Session::get('alert-type', 'info') }}";
     switch (type) {
         case 'info':

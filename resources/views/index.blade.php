@@ -13,9 +13,9 @@
                 <div class="panel-content">
                     <i class="voyager-group"></i>
                     <?php $user_count = TCG\Voyager\Models\User::count(); ?>
-                    <h4>{{ $user_count }} Users</h4>
-                    <p>You have {{ $user_count }} active users registered. Click on 'View All Users' to view all your current users.</p>
-                    <a href="{{ route('voyager.users.index') }}" class="btn btn-primary">View All Users</a>
+                    <h4>{{ $user_count }} {{ trans('voyager::common.users') }}</h4>
+                    <p>{{ trans('voyager::common.users_ps1', ['count' => $user_count]) }}</p>
+                    <a href="{{ route('voyager.users.index') }}" class="btn btn-primary">{{ trans('voyager::common.view_all_users') }}</a>
                 </div>
             </div>
             <?php } ?>
@@ -25,9 +25,9 @@
                 <div class="panel-content">
                     <i class="voyager-news"></i>
                     <?php $post_count = TCG\Voyager\Models\Post::count(); ?>
-                    <h4>{{ $post_count }} Post(s)</h4>
-                    <p>You have {{ $post_count }} Posts in your database. Click on 'View All Posts' below to view all posts.</p>
-                    <a href="{{ route('voyager.posts.index') }}" class="btn btn-primary">View All Posts</a>
+                    <h4>{{ $post_count }} {{ trans('voyager::common.posts') }}</h4>
+                    <p>{{ trans('voyager::common.posts_ps1', ['count' => $post_count]) }}</p>
+                    <a href="{{ route('voyager.posts.index') }}" class="btn btn-primary">{{ trans('voyager::common.view_all_posts') }}</a>
                 </div>
             </div>
             <?php } ?>
@@ -37,9 +37,9 @@
                 <div class="panel-content">
                     <i class="voyager-file-text"></i>
                     <?php $page_count = TCG\Voyager\Models\Page::count(); ?>
-                    <h4>{{ $page_count }} Page(s)</h4>
-                    <p>You have {{ $page_count }} Pages in your database. Click on 'View All Pages' below to view all pages.</p>
-                    <a href="{{ route('voyager.pages.index') }}" class="btn btn-primary">View All Pages</a>
+                    <h4>{{ $page_count }} {{ trans('voyager::common.pages') }}</h4>
+                    <p>{{ trans('voyager::common.pages_ps1', ['count' => $page_count]) }}</p>
+                    <a href="{{ route('voyager.pages.index') }}" class="btn btn-primary">{{ trans('voyager::common.view_all_pages') }}</a>
                 </div>
             </div>
             <?php } ?>
@@ -52,8 +52,7 @@
                 <div id="embed-api-auth-container"></div>
             @else
                 <p style="border-radius:4px; padding:20px; background:#fff; margin:0; color:#999; text-align:center;">
-                    To view analytics you'll need to get a google analytics client id and add it to your settings for the key <code>google_analytics_client_id</code>. Get your key in your Google developer console:
-                    <a href="https://console.developers.google.com" target="_blank">https://console.developers.google.com</a>
+                    {!! trans('voyager::common.google_analytics') !!}
                 </p>
             @endif
 

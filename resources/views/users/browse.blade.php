@@ -2,9 +2,9 @@
 
 @section('page_header')
     <h1 class="page-title">
-        <i class="{{ $dataType->icon }}"></i> {{ $dataType->display_name_plural }}
+        <i class="{{ $dataType->icon }}"></i> {{ trans('voyager::common.' . $dataType->slug) }}
         <a href="{{ route('voyager.'.$dataType->slug.'.create') }}" class="btn btn-success">
-            <i class="voyager-plus"></i> Add New
+            <i class="voyager-plus"></i> {{ trans('voyager::common.op_new') }}
         </a>
     </h1>
 @stop
@@ -22,12 +22,12 @@
                         <table id="dataTable" class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Created At</th>
-                                    <th>Avatar</th>
-                                    <th>Role</th>
-                                    <th class="actions">Actions</th>
+                                    <th>{{ trans('voyager::users.name') }}</th>
+                                    <th>{{ trans('voyager::users.email') }}</th>
+                                    <th>{{ trans('voyager::users.created_at') }}</th>
+                                    <th>{{ trans('voyager::users.avatar') }}</th>
+                                    <th>{{ trans('voyager::users.role') }}</th>
+                                    <th class="actions">{{ trans('voyager::common.actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,13 +42,13 @@
                                     <td>{{ $data->role ? $data->role->display_name : '' }}</td>
                                     <td class="no-sort no-click">
                                         <div class="btn-sm btn-danger pull-right delete" data-id="{{ $data->id }}" id="delete-{{ $data->id }}">
-                                            <i class="voyager-trash"></i> Delete
+                                            <i class="voyager-trash"></i> {{ trans('voyager::common.op_delete') }}
                                         </div>
                                         <a href="{{ route('voyager.'.$dataType->slug.'.edit', $data->id) }}" class="btn-sm btn-primary pull-right edit">
-                                            <i class="voyager-edit"></i> Edit
+                                            <i class="voyager-edit"></i> {{ trans('voyager::common.op_edit') }}
                                         </a>
                                         <a href="{{ route('voyager.'.$dataType->slug.'.show', $data->id) }}" class="btn-sm btn-warning pull-right">
-                                            <i class="voyager-eye"></i> View
+                                            <i class="voyager-eye"></i> {{ trans('voyager::common.op_view') }}
                                         </a>
                                     </td>
                                 </tr>
@@ -67,17 +67,16 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title"><i class="voyager-trash"></i> Are you sure you want to delete
-                        this {{ $dataType->display_name_singular }}?</h4>
+                    <h4 class="modal-title"><i class="voyager-trash"></i>{{ trans('voyager::common.op_delete_ps1', ['msg' => trans('voyager::common.' . $dataType->slug)]) }}</h4>
                 </div>
                 <div class="modal-footer">
                     <form action="{{ route('voyager.'.$dataType->slug.'.index') }}" id="delete_form" method="POST">
                         {{ method_field("DELETE") }}
                         {{ csrf_field() }}
                         <input type="submit" class="btn btn-danger pull-right delete-confirm"
-                               value="Yes, Delete This {{ $dataType->display_name_singular }}">
+                               value="{{ trans('voyager::common.op_delete_ps2', ['msg' => trans('voyager::common.' . $dataType->slug)]) }}">
                     </form>
-                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">{{ trans('voyager::common.btn_cancel') }}</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
