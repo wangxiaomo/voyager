@@ -20,6 +20,9 @@ return [
     'roles'     =>  '角色',
     'media'     =>  '富媒体',
     'menus'     =>  '菜单',
+    'database'  =>  '数据库',
+    'create'    =>  '新建',
+    'bread'     =>  'BREAD',
 
     'google_analytics'  =>  '需要配置<code>google_analytics_client_id</code>来查看谷歌统计数据，详情可参看:<a href="https://console.developers.google.com" target="_blank">https://console.developers.google.com</a>',
 

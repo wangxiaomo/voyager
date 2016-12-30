@@ -7,7 +7,7 @@
 
 @section('page_header')
     <div class="page-title">
-        <i class="voyager-data"></i> @if(isset($dataType->id)){{ 'Edit BREAD for ' . $dataType->name . ' table' }}@elseif(isset($table)){{ 'Create BREAD for ' . $table . ' table' }}@endif
+        <i class="voyager-data"></i> @if(isset($dataType->id)){{ trans('voyager::common.op_edit') . 'BREAD for ' . $dataType->name . trans('voyager::database.table') }}@elseif(isset($table)){{ trans('voyager::common.op_new') . 'BREAD for ' . $table . trans('voyager::database.table') }}@endif
     </div>
 @stop
 

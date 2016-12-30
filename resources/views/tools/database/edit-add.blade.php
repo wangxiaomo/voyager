@@ -2,7 +2,7 @@
 
 @section('page_header')
     <h1 class="page-title">
-        <i class="voyager-data"></i> @if(isset($table)){{ 'Editing ' . $table . ' table' }}@else{{ 'New Table' }}@endif
+        <i class="voyager-data"></i> @if(isset($table)){{ trans('voyager::common.op_edit') . $table . trans('voyager::database.table') }}@else{{ trans('voyager::common.op_new') . trans('voyager::database.table') }}@endif
     </h1>
 @stop
 
@@ -96,7 +96,7 @@
                     @if(isset($table)){{ method_field('PUT') }}@endif
                     <div class="panel panel-bordered">
                         <div class="panel-heading">
-                            <h3 class="panel-title">@if(isset($table)){{ 'Edit the ' . $table . ' table below' }}@else{{ 'Create Your New Table Below' }}@endif</h3>
+                            <h3 class="panel-title">@if(isset($table)){{ 'Edit the ' . $table . ' table below' }}@else{{ trans('voyager::database.create_table') }}@endif</h3>
                         </div>
                         <div class="panel-body">
 
