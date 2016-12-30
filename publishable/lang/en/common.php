@@ -23,6 +23,7 @@ return [
     'database'  =>  'Database',
     'create'    =>  'Create',
     'bread'     =>  'BREAD',
+    'settings'  =>  'Settings',
 
     'google_analytics'  =>  'To view analytices you\'ll need to get a google analytics client id and add it to your settings for the key <code>google_analytics_client_id</code>. Get your key in your Google developer console:<a href="https://console.developers.google.com" target="_blank">https://console.developers.google.com</a>',
 
@@ -48,6 +49,7 @@ return [
     'btn_move'      =>  'Move',
     'btn_rename'    =>  'Rename',
     'btn_new'       =>  'New',
+    'btn_save'      =>  'Save',
     'btn_update'    =>  'Update',
     'btn_delete'    =>  'Delete',
     'btn_done'      =>  'All Done',

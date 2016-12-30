@@ -162,7 +162,7 @@
 
 @section('page_header')
     <h1 class="page-title">
-        <i class="voyager-settings"></i> Settings
+        <i class="voyager-settings"></i> {{ trans('voyager::common.settings') }}
     </h1>
 @stop
 
@@ -170,8 +170,8 @@
 
     <div class="container-fluid">
         <div class="alert alert-info">
-            <strong>How To Use:</strong>
-            <p>You can get the value of each setting anywhere on your site by calling <code>Voyager::setting('key')</code></p>
+            <strong>{{ trans('voyager::settings.how_to_use') }}:</strong>
+            <p>{!! trans('voyager::settings.how_to_use_ps1')  !!}</p>
         </div>
     </div>
 
@@ -263,7 +263,7 @@
                     @endif
                 @endforeach
             </div>
-            <button type="submit" class="btn btn-primary pull-right">Save Settings</button>
+            <button type="submit" class="btn btn-primary pull-right">{{ trans('voyager::common.btn_save') }}</button>
         </form>
 
         <div style="clear:both"></div>
@@ -352,7 +352,7 @@
                     </script>
                     <div style="clear:both"></div>
                     <button type="submit" class="btn btn-primary pull-right new-setting-btn">
-                        <i class="voyager-plus"></i> Add New Setting
+                        <i class="voyager-plus"></i> {{ trans('voyager::common.btn_new') }}
                     </button>
                     <div style="clear:both"></div>
                 </form>
@@ -368,16 +368,16 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title">
-                        <i class="voyager-trash"></i> Are you sure you want to delete the <span id="delete_setting_title"></span> Setting?
+                        <i class="voyager-trash"></i> {{ trans('voyager::common.op_delete_ps1', ['msg' => '<span id="delete_setting_title"></span>']) }}
                     </h4>
                 </div>
                 <div class="modal-footer">
                     <form action="{{ route('voyager.settings.delete', ['id' => '__id']) }}" id="delete_form" method="POST">
                         {{ method_field("DELETE") }}
                         {{ csrf_field() }}
-                        <input type="submit" class="btn btn-danger pull-right delete-confirm" value="Yes, Delete This Setting">
+                        <input type="submit" class="btn btn-danger pull-right delete-confirm" value="{{ trans('voyager::common.op_delete_ps2', ['msg' => '']) }}">
                     </form>
-                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">{{ trans('voyager::common.btn_cancel') }}</button>
                 </div>
             </div>
         </div>
