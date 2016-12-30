@@ -2,7 +2,7 @@
 
 @section('page_header')
     <h1 class="page-title">
-        <i class="{{ $dataType->icon }}"></i> Viewing {{ ucfirst($dataType->display_name_singular) }}
+        <i class="{{ $dataType->icon }}"></i> {{ trans('voyager::common.op_view') }} {{ trans('voyager::common.' . $dataType->slug) }}
     </h1>
 @stop
 
@@ -21,7 +21,7 @@
                     @foreach($dataType->readRows as $row)
 
                         <div class="panel-heading" style="border-bottom:0;">
-                            <h3 class="panel-title">{{ $row->display_name }}</h3>
+                            <h3 class="panel-title">{{ trans('voyager::bread.' . strtolower(str_replace(' ', '_', $row->display_name))) }}</h3>
                         </div>
 
                         <div class="panel-body" style="padding-top:0;">
