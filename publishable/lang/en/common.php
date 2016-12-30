@@ -43,6 +43,7 @@ return [
     'btn_move'      =>  'Move',
     'btn_rename'    =>  'Rename',
     'btn_new'       =>  'New',
+    'btn_update'    =>  'Update',
     'btn_delete'    =>  'Delete',
     'btn_done'      =>  'All Done',
 

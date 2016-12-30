@@ -43,6 +43,7 @@ return [
     'btn_move'      =>  '移动',
     'btn_rename'    =>  '重命名',
     'btn_new'       =>  '新建',
+    'btn_update'    =>  '更新',
     'btn_delete'    =>  '删除',
     'btn_done'      =>  '完成',
 

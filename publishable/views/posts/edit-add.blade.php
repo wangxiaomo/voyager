@@ -50,7 +50,7 @@
 
 @section('page_header')
     <h1 class="page-title">
-        <i class="{{ $dataType->icon }}"></i> @if(isset($dataTypeContent->id)){{ 'Edit' }}@else{{ 'New' }}@endif {{ $dataType->display_name_singular }}
+        <i class="{{ $dataType->icon }}"></i> @if(isset($dataTypeContent->id)){{ trans('voyager::common.op_edit') }}@else{{ trans('voyager::common.op_new') }}@endif {{ trans('voyager::common.' . strtolower(str_replace(' ', '_', $dataType->slug))) }}
     </h1>
 @stop
 
@@ -69,8 +69,8 @@
                     <div class="panel">
                         <div class="panel-heading">
                             <h3 class="panel-title">
-                                <i class="voyager-character"></i> Post Title
-                                <span class="panel-desc"> The title for your post</span>
+                                <i class="voyager-character"></i> {{ trans('voyager::posts.title') }}
+                                <span class="panel-desc">{{ trans('voyager::posts.title_ps1') }}</span>
                             </h3>
                             <div class="panel-actions">
                                 <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
@@ -84,7 +84,7 @@
                     <!-- ### CONTENT ### -->
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="icon wb-book"></i> Post Content</h3>
+                            <h3 class="panel-title"><i class="icon wb-book"></i> {{ trans('voyager::posts.content') }}</h3>
                             <div class="panel-actions">
                                 <a class="panel-action voyager-resize-full" data-toggle="panel-fullscreen" aria-hidden="true"></a>
                             </div>
@@ -97,7 +97,7 @@
                     <!-- ### EXCERPT ### -->
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Excerpt <small>Small description of this post</small></h3>
+                            <h3 class="panel-title">{{ trans('voyager::posts.excerpt')}} <small>{{ trans('voyager::posts.excerpt_ps1') }}</small></h3>
                             <div class="panel-actions">
                                 <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
                             </div>
@@ -113,18 +113,18 @@
                     <!-- ### DETAILS ### -->
                     <div class="panel panel panel-bordered panel-warning">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="icon wb-clipboard"></i> Post Details</h3>
+                            <h3 class="panel-title"><i class="icon wb-clipboard"></i> {{ trans('voyager::posts.detail') }}</h3>
                             <div class="panel-actions">
                                 <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
                             </div>
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
-                                <label for="name">URL slug</label>
+                                <label for="name">{{ trans('voyager::posts.url') }}</label>
                                 <input type="text" class="form-control" name="slug" placeholder="slug" value="@if(isset($dataTypeContent->slug)){{ $dataTypeContent->slug }}@endif">
                             </div>
                             <div class="form-group">
-                                <label for="name">Post Status</label>
+                                <label for="name">{{ trans('voyager::posts.status') }}</label>
                                 <select class="form-control" name="status">
                                     <option value="PUBLISHED" @if(isset($dataTypeContent->status) && $dataTypeContent->status == 'PUBLISHED'){{ 'selected="selected"' }}@endif>published</option>
                                     <option value="DRAFT" @if(isset($dataTypeContent->status) && $dataTypeContent->status == 'DRAFT'){{ 'selected="selected"' }}@endif>draft</option>
@@ -132,7 +132,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="name">Post Category</label>
+                                <label for="name">{{ trans('voyager::posts.category') }}</label>
                                 <select class="form-control" name="category_id">
                                     @foreach(TCG\Voyager\Models\Category::all() as $category)
                                         <option value="{{ $category->id }}" @if(isset($dataTypeContent->category_id) && $dataTypeContent->category_id == $category->id){{ 'selected="selected"' }}@endif>{{ $category->name }}</option>
@@ -140,7 +140,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="name">Featured</label>
+                                <label for="name">{{ trans('voyager::posts.featured') }}</label>
                                 <input type="checkbox" name="featured" @if(isset($dataTypeContent->featured) && $dataTypeContent->featured){{ 'checked="checked"' }}@endif>
                             </div>
                         </div>
@@ -149,7 +149,7 @@
                     <!-- ### IMAGE ### -->
                     <div class="panel panel-bordered panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="icon wb-image"></i> Post Image</h3>
+                            <h3 class="panel-title"><i class="icon wb-image"></i> {{ trans('voyager::posts.post_image') }}</h3>
                             <div class="panel-actions">
                                 <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
                             </div>
@@ -193,7 +193,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary pull-right">
-                @if(isset($dataTypeContent->id)){{ 'Update Post' }}@else<?= '<i class="icon wb-plus-circle"></i> Create New Post'; ?>@endif
+                @if(isset($dataTypeContent->id)){{ trans('voyager::common.btn_update') }}@else<?= '<i class="icon wb-plus-circle"></i> ' . trans('voyager::common.btn_new'); ?>@endif
             </button>
         </form>
 
